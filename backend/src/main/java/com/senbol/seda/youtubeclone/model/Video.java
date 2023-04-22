@@ -1,21 +1,19 @@
 package com.senbol.seda.youtubeclone.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 import java.util.Set;
 
+@EqualsAndHashCode(callSuper = true)
 @Document(value = "Video")
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Video {
-    @Id
-    private String id;
+public class Video extends BaseEntity {
+    private String fileId;
     private String title;
     private String description;
     private String userId;
@@ -23,7 +21,6 @@ public class Video {
     private Integer dislikes;
     private Set<String> tags;
     private String videoUrl;
-    private VideoStatus videoStatus;
     private String thumbnailUrl;
     private List<Comment> commentList;
 

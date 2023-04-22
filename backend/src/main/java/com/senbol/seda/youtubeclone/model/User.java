@@ -2,20 +2,19 @@ package com.senbol.seda.youtubeclone.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 import java.util.Set;
 
+@EqualsAndHashCode(callSuper = true)
 @Document(value = "User")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
-    @Id
-    private String id;
+public class User extends BaseEntity {
     private String firstName;
     private String lastName;
     private String emailAddress;
